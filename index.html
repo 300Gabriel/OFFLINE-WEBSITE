@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WAEC Offline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      color: #111;
+      padding: 20px;
+    }
+    #lock {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #message {
+      margin-top: 10px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="lock">
+    <h2>WAEC Access</h2>
+    <p>Please enter your access code</p>
+    <input type="text" id="codeInput" placeholder="Enter code" />
+    <button onclick="checkCode()">Continue</button>
+    <div id="message"></div>
+  </div>
+
+  <div id="content" style="display:none">
+    <h3>Welcome</h3>
+    <p>This is your offline WAEC info hub</p>
+    <p>You can read without internet as long as your code is active</p>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+    }
+  </script>
+</body>
+</html>
